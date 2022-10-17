@@ -1,59 +1,228 @@
-baseURL: https://hugo-toha.github.io
-
-languageCode: en-us
+baseURL: "http://localhost:1313" # if your site is in 'https', then make sure your base url isn't written using 'http' otherwise your sitemap would contain http (as opposeed to https) URLs. This would affect Google indexing of your URLs.
 title: "Ruff's Blog"
-theme: "toha"
+languageCode: zh-cn
+paginate: 5
+theme: PaperMod
 
-# Manage languages
-# For any more details, you can check the official documentation: https://gohugo.io/content-management/multilingual/
+enableInlineShortcodes: true
+enableEmoji: true # 允许使用 Emoji 表情，建议 true
+enableRobotsTXT: true # 允许爬虫抓取到搜索引擎，建议 true
+hasCJKLanguage: true # 自动检测是否包含 中文日文韩文 如果文章中使用了很多中文引号的话可以开启
+
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+pygmentsUseClasses: true
+# googleAnalytics: UA-123-45
+
+minify:
+  disableXML: true
+  # minifyOutput: true
+
+permalinks: # 访问博客时网址的显示形式
+  post: "/:title/"
+
+defaultContentLanguage: zh
 languages:
-  zh-cn:
-    languageName: 简体中文
+  zh:
+    languageName: "简体中文"
+    languageAltTitle: "cn"
     weight: 1
-  en:
-    languageName: English
-    weight: 2
-
-# Control TOC depth
-markup:
-  tableOfContents:
-    startLevel: 2
-    endLevel: 6
-    ordered: false
-
-# At least HTML and JSON are required for the main HTML content and
-# client-side JavaScript search
+    profileMode:
+      enabled: true
+      title: φ(゜▽゜*)♪
+      imageUrl: "https://raw.githubusercontent.com/twitter/twemoji/master/assets/svg/1f317.svg"
+      imageTitle:
+      # imageWidth: 120
+      # imageHeight: 120
+      # subtitle: "☄️ Fast | ☁️ Fluent | 🌙 Smooth | 📱 Responsive"
+      buttons:
+        - name: 💻 技术
+          url: posts
+        - name: 📕 阅读
+          url: notes
+        - name: 🏖 生活
+          url: one_piece
+    menu:
+      main:
+        - identifier: search
+          name: 🔍 搜索
+          url: search
+          weight: 1
+        - identifier: home
+          name: 🏠 主页
+          url: /
+          weight: 2
+        - identifier: posts
+          name: 📚 文章
+          url: posts
+          weight: 3
+        - identifier: tags
+          name: 🧩 标签
+          url: tags
+          weight: 15
+        - identifier: archives
+          name: ⏱ 时间轴
+          url: archives/
+          weight: 20
+        - identifier: about
+          name: 🙋🏻‍♂️ 关于
+          url: about
+          weight: 50
 outputs:
   home:
-  - HTML
-  - RSS
-  - JSON
+    - HTML
+    - RSS
+    - JSON
 
-# Enable global emoji support
-enableEmoji: true
-
-# Site parameters
 params:
-  # GitHub repo URL and branch of your site
-  gitRepo: https://github.com/785287123/Ruff-Blog
-  gitBranch: main
+  #  disableScrollToTop: false
+  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  description: "Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod"
+  author: "路非非"
+  # author: ["Me", "You"] # multiple authors
 
-  # specify whether you want to write some blog posts or not
-  enableBlogPost: true
+  # 请写到params这个参数下面
+  defaultTheme: dark  #light dark auto
+  disableThemeToggle: false
+  displayFullLangName: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  hideFooter: true
+  ShowWordCounts: true
+  DateFormat: "2006-01-02"
+  ShowLastMod: true
+  ShowShareButtons: false
+  ShareButtons:
+    - twitter
+    - facebook
+  ShowReadingTime: true
+  ShowToc: true
+  tocopen: true
+  hideSummary: false
+  comments: true
 
-  # specify whether you want to show Table of Contents in reading page
-  enableTOC: true
+  profileMode:
+    enabled: true
+    title: Ruff
+    subtitle: "This is subtitle"
+    imageUrl: "https://raw.githubusercontent.com/twitter/twemoji/master/assets/svg/1f317.svg"
+    imageTitle: my image
+    # imageWidth: 120
+    # imageHeight: 120
+    buttons:
+      - name: Archives
+        url: archives
+      - name: Github
+        url: "https://github.com/"
+  homeInfoParams:
+    Title: "Hi there wave"
+    Content: >
+      Welcome to demo of hugo's theme PaperMod.
+      
+      - **PaperMod** is a simple but fast and responsive theme with useful feature-set that enhances UX.
+      
+      - Do give a 🌟 on Github !
 
-  # specify whether you want the language flags to be displayed. 
-  showFlags: true
+  socialIcons:
+    - name: QQ
+      url: "link"
+    - name: WeChat
+      url: "link"
+    - name: phone
+      url: "index.xml"
+    - name: email
+      url: "index.xml"
+    - name: bilibili
+      url: "index.xml"
+    - name: steam
+      url: "index.xml"
 
-  # Provide newsletter configuration. 
-  # This feature has been implemented for Mailchimp only for now.
-  # You can also hide it from the footer.
-  newsletter:
-    # specify whether you want to display the newsletter form 
-    enable: false
-    # specify which newsletter provider you want to use
-    provider: mailchimp
-    # specify the target URL for the subscription form
-    mailchimpURL: https://github.us1.list-manage.com/subscribe/post?u=19de52a4603135aae97163fd8&amp;id=094a24c76e
+  editPost:
+    #    URL: "https://github.com/adityatelange/hugo-PaperMod/tree/exampleSite/content"
+    URL: "mailto://ruff_ss@foxmail.com?subject=Suggesting changes for"
+    Text: "Suggest Changes" # edit text
+    appendFilePath: true # to append file path to Edit link
+
+
+  label:
+    text: "Ruff's Blog"
+    icon: icon.png
+    iconHeight: 35
+
+  analytics:
+    google:
+      SiteVerificationTag: ""
+
+  assets:
+    disableHLJS: false
+  #     favicon: "<link / abs url>"
+  #     favicon16x16: "<link / abs url>"
+  #     favicon32x32: "<link / abs url>"
+  #     apple_touch_icon: "<link / abs url>"
+  #     safari_pinned_tab: "<link / abs url>"
+
+  cover:
+    hidden: false # hide everywhere but not in structured data
+    hiddenInList: false # hide on list pages and home
+    hiddenInSingle: false # hide on single page
+    #    image: "images/img.png"
+    # can also paste direct link from external site
+    # ex. https://i.ibb.co/K0HVPBd/paper-mod-profilemode.png
+  #    alt: "<alt text>"
+  #    caption: "<text>"
+  #    relative: true # To use relative path for cover image, used in hugo Page-bundles
+
+
+  fuseOpts: #https://fusejs.io/api/options.html
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: [ "title", "permalink", "summary", "content" ]
+
+taxonomies:
+  category: "categories"
+  tag: "tags"
+  series: "series"
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true # HUGO 默认转义 Markdown 文件中的 HTML 代码，如需开启的话
+  highlight:
+    anchorLineNos: true
+    noClasses: true #使用 class 标签，而不是内嵌的内联样式
+    codeFences: true #代码围栏功能，这个功能一般都要设为 true 的，不然很难看，就是干巴巴的-代码文字，没有颜色。
+    guessSyntax: true #猜测语法，这个功能建议设置为 true, 如果你没有设置要显示的语言则会自动匹配。
+    lineNos: true
+    tabWidth: 4
+    style: monokai
+
+privacy:
+  vimeo:
+    disabled: false
+    simple: true
+
+  twitter:
+    disabled: false
+    enableDNT: true
+    simple: true
+
+  instagram:
+    disabled: false
+    simple: true
+
+  youtube:
+    disabled: false
+    privacyEnhanced: true
+
+services:
+  instagram:
+    disableInlineCSS: true
+  twitter:
+    disableInlineCSS: true
