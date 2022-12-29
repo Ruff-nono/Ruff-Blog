@@ -1,21 +1,17 @@
 ---
-title: "文章名称"
-date: 2022-10-17T15:57:04+08:00
-lastmod: 2022-10-17T15:57:04+08:00
+title: "One"
+slug: ""
+date: 2022-11-02T17:58:56+08:00
+lastmod: 2022-11-02T17:58:56+08:00
 author: ["路非非"]
-keywords:
--
-categories: # 没有分类界面可以不填写
-- 
 tags: # 标签
-- "标签222"
+-
+series:
+-
 description: ""
 weight:
-slug: "xxx"
 draft: false # 是否为草稿
 comments: true # 本页面是否显示评论
-reward: true # 打赏
-mermaid: true #是否开启mermaid
 showToc: true # 显示目录
 TocOpen: true # 自动展开目录
 hidemeta: false # 是否隐藏文章的元信息，如发布日期、作者等
@@ -27,5 +23,3 @@ cover:
   alt: ""
   relative: false
 ---
-
-#### ssss

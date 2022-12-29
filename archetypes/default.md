@@ -1,21 +1,17 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
+slug: ""
 date: {{ .Date }}
 lastmod: {{ .Date }}
 author: ["路非非"]
-keywords:
--
-categories: # 没有分类界面可以不填写
-- 
 tags: # 标签
-- 
+-
+series:
+-
 description: ""
 weight:
-slug: ""
 draft: false # 是否为草稿
 comments: true # 本页面是否显示评论
-reward: true # 打赏
-mermaid: true #是否开启mermaid
 showToc: true # 显示目录
 TocOpen: true # 自动展开目录
 hidemeta: false # 是否隐藏文章的元信息，如发布日期、作者等
