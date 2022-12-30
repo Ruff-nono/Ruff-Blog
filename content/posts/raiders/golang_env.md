@@ -16,6 +16,13 @@ showToc: true
 
 Windows下可以使用 .msi 后缀(在下载列表中可以找到该文件，如`go1.19.2.windows-amd64.msi`)的安装包来安装。
 
+linux下安装示例
+```shell
+wget https://go.dev/dl/go1.19.4.linux-amd64.tar.gz
+
+tar -C ~/Ruff/ -xzf go1.19.4.linux-amd64.tar.gz
+```
+
 安装完成后，在对应安装目录的 xxx\bin 目录下打开cmd, 输入`go version`命令<br/>返回go version go1.19 windows/amd64即表示安装完成。
 
 ## 配置环境变量
@@ -26,13 +33,24 @@ Windows下可以使用 .msi 后缀(在下载列表中可以找到该文件，如
 
 编辑path变量，新增 `%GO_HOME%\bin`
 
+linux下
+编辑 ~/.bash_profile 或者 /etc/profile
+```
+export PATH=$PATH:/usr/local/go/bin
+```
+添加后需要执行
+```shell
+source ~/.bash_profile
+或
+source /etc/profile
+```
 ## Goland安装
 
 官网下载最新版本[https://www.jetbrains.com/go/download/](https://www.jetbrains.com/go/download/)
 
 `有条件的可以支持正版`
 
-无条件的参考破解攻略[https://www.bilibili.com/read/cv18308655](https://www.bilibili.com/read/cv18308655)
+无条件的参考破解攻略
 
 ## Go 私有仓库配置
 
