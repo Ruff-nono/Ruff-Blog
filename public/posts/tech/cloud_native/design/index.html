@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>如何云原生 | Ruff&#39;s Blog</title>
+<meta name="keywords" content="">
+<meta name="description" content="云原生技术有利于各组织在公有云、私有云和混合云等新型动态环境中，构建和运行可弹性扩展的应用。 云原生的代表技术包括 容器、服务网格、微服务、不可">
+<meta name="author" content="
+作者:&nbsp;路非非">
+<link rel="canonical" href="http://localhost:1313/posts/tech/cloud_native/design/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.ee5b3dea7b41dd29319b62e45e966318b6b809531e2cf0f740600b0f7326d25b.css" integrity="sha256-7ls96ntB3Skxm2LkXpZjGLa4CVMeLPD3QGALD3Mm0ls=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="如何云原生" />
+<meta property="og:description" content="云原生技术有利于各组织在公有云、私有云和混合云等新型动态环境中，构建和运行可弹性扩展的应用。 云原生的代表技术包括 容器、服务网格、微服务、不可" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/posts/tech/cloud_native/design/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-10-19T15:40:40+08:00" />
+<meta property="article:modified_time" content="2022-10-19T15:40:40+08:00" />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="如何云原生"/>
+<meta name="twitter:description" content="云原生技术有利于各组织在公有云、私有云和混合云等新型动态环境中，构建和运行可弹性扩展的应用。 云原生的代表技术包括 容器、服务网格、微服务、不可"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "📜笔记",
+      "item": "http://localhost:1313/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "👨🏻‍💻 技术",
+      "item": "http://localhost:1313/posts/tech/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "如何云原生",
+      "item": "http://localhost:1313/posts/tech/cloud_native/design/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "如何云原生",
+  "name": "如何云原生",
+  "description": "云原生技术有利于各组织在公有云、私有云和混合云等新型动态环境中，构建和运行可弹性扩展的应用。 云原生的代表技术包括 容器、服务网格、微服务、不可",
+  "keywords": [
+    ""
+  ],
+  "articleBody": " 云原生技术有利于各组织在公有云、私有云和混合云等新型动态环境中，构建和运行可弹性扩展的应用。 云原生的代表技术包括 容器、服务网格、微服务、不可变基础设施 和 声明式 API。 这些技术能够构建容错性好、易于管理和便于观察的松耦合系统。结合可靠的自动化手段，云原生技术使工程师能够轻松地对系统作出频繁和可预测的重大变更。——CNCF（云原生计算基金会）。\n云原生的设计理念 面向分布式设计（Distribution）：容器、微服务、API 驱动的开发； 面向配置设计（Configuration）：一个镜像，多个环境配置； 面向韧性设计（Resistancy）：故障容忍和自愈； 面向弹性设计（Elasticity）：弹性扩展和对环境变化（负载）做出响应； 面向交付设计（Delivery）：自动拉起，缩短交付时间； 面向性能设计（Performance）：响应式，并发和资源高效利用； 面向自动化设计（Automation）：自动化的 DevOps； 面向诊断性设计（Diagnosability）：集群级别的日志、metric 和追踪； 面向安全性设计（Security）：安全端点、API Gateway、端到端加密； 云计算介绍 云原生借了云计算的东风，没有云计算，自然没有云原生，云计算是云原生的基础。\n通俗的讲，云计算可以说是一种配置资源的方式，随着虚拟化技术，可持续交付，编排系统的快速发展及普及，应用上云已经是不可逆转的趋势。 云计算从宏观上按3层划分，即基础设施即服务(IaaS)、平台即服务(PaaS)、软件即服务(SaaS)为云原生提供了技术基础和方向指引，\nIaaS：这是为了想要建立自己的商业模式并进行自定义的客户，例如亚马逊的 EC2、S3 存储、Rackspace 虚拟机等都是 IaaS。 PaaS：工具和服务的集合，对于想用它来构建自己的应用程序或者想快速得将应用程序部署到生产环境而不必关心底层硬件的用户和开发者来说是特别有用的， 比如 Cloud Foundry、Google App Engine、Heroku 等。 SaaS：终端用户可以直接使用的应用程序。这个就太多，我们生活中用到的很多软件都是 SaaS 服务，只要基于互联网来提供的服务基本都是 SaaS 服务，有的服务是免费的，比如 Google Docs，还有更多的是根据我们购买的 Plan 和使用量付费，比如 GitHub、各种云存储。 真正的云化不仅仅是基础设施和平台的变化，应用也需要做出改变，摈弃传统的土方法，在架构设计、开发方式、部署维护等各个阶段和方面都基于云的特点，重新设计，从而建设全新的云化的应用，即云原生应用。\nKubernetes作为一个分布式集群管理系统，它的一个重要目标是：将适合的资源分配给适合的应用，满足对应用的QoS要求和获得最优的资源使用效率。\n",
+  "wordCount" : "1123",
+  "inLanguage": "zh",
+  "datePublished": "2022-10-19T15:40:40+08:00",
+  "dateModified": "2022-10-19T15:40:40+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "路非非"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/posts/tech/cloud_native/design/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ruff's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313" accesskey="h" title="Ruff&#39;s Blog (Alt + H)">
+                <img src="http://localhost:1313/icon.png" alt="" aria-label="logo"
+                    height="35">Ruff&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/" title="🏠 主页">
+                    <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/posts" title="📜 笔记">
+                    <span>📜 笔记</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags" title="🧩 标签">
+                    <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/series" title="🧩 系列">
+                    <span>🧩 系列</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archives/" title="⏰ 时间轴">
+                    <span>⏰ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about" title="🙋🏻‍♂ 关于">
+                    <span>🙋🏻‍♂ 关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+    <header class="post-header">
+        <div class="breadcrumbs"><a href="http://localhost:1313">主页</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">📜笔记</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/tech/">👨🏻‍💻 技术</a></div>
+        <h1 class="post-title">
+            如何云原生
+        </h1>
+        <div class="post-meta">创建:&nbsp;<span title='2022-10-19 15:40:40 +0800 CST'>2022-10-19</span>&nbsp;|&nbsp;更新:&nbsp;2022-10-19&nbsp;|&nbsp;字数:&nbsp;1123字&nbsp;|&nbsp;时长:&nbsp;3分钟&nbsp;|&nbsp;
+作者:&nbsp;路非非
+
+
+
+            &nbsp;|&nbsp;标签: &nbsp;
+            <ul class="post-tags-meta">
+            </ul>
+
+            
+            
+            
+            
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <span id="busuanzi_container_page_pv">
+                &nbsp;| 访问: <span id="busuanzi_value_page_pv"></span>
+            </span>&nbsp;|&nbsp;<a href="mailto://ruff_ss@foxmail.com?subject=Suggesting%20changes%20for/posts/tech/cloud_native/1design.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+
+</div>
+    </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e4%ba%91%e5%8e%9f%e7%94%9f%e7%9a%84%e8%ae%be%e8%ae%a1%e7%90%86%e5%bf%b5" aria-label="云原生的设计理念">云原生的设计理念</a></li>
+                <li>
+                    <a href="#%e4%ba%91%e8%ae%a1%e7%ae%97%e4%bb%8b%e7%bb%8d" aria-label="云计算介绍">云计算介绍</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+    <div class="post-content"><blockquote>
+<p>云原生技术有利于各组织在公有云、私有云和混合云等新型动态环境中，构建和运行可弹性扩展的应用。
+云原生的代表技术包括 容器、服务网格、微服务、不可变基础设施 和 声明式 API。
+这些技术能够构建容错性好、易于管理和便于观察的松耦合系统。结合可靠的自动化手段，云原生技术使工程师能够轻松地对系统作出频繁和可预测的重大变更。——CNCF（云原生计算基金会）。</p>
+</blockquote>
+<h2 id="云原生的设计理念">云原生的设计理念<a hidden class="anchor" aria-hidden="true" href="#云原生的设计理念">#</a></h2>
+<ul>
+<li>面向分布式设计（Distribution）：容器、微服务、API 驱动的开发；</li>
+<li>面向配置设计（Configuration）：一个镜像，多个环境配置；</li>
+<li>面向韧性设计（Resistancy）：故障容忍和自愈；</li>
+<li>面向弹性设计（Elasticity）：弹性扩展和对环境变化（负载）做出响应；</li>
+<li>面向交付设计（Delivery）：自动拉起，缩短交付时间；</li>
+<li>面向性能设计（Performance）：响应式，并发和资源高效利用；</li>
+<li>面向自动化设计（Automation）：自动化的 DevOps；</li>
+<li>面向诊断性设计（Diagnosability）：集群级别的日志、metric 和追踪；</li>
+<li>面向安全性设计（Security）：安全端点、API Gateway、端到端加密；</li>
+</ul>
+<h2 id="云计算介绍">云计算介绍<a hidden class="anchor" aria-hidden="true" href="#云计算介绍">#</a></h2>
+<p>云原生借了云计算的东风，没有云计算，自然没有云原生，云计算是云原生的基础。</p>
+<p>通俗的讲，云计算可以说是一种配置资源的方式，随着虚拟化技术，可持续交付，编排系统的快速发展及普及，应用上云已经是不可逆转的趋势。
+云计算从宏观上按3层划分，即基础设施即服务(IaaS)、平台即服务(PaaS)、软件即服务(SaaS)为云原生提供了技术基础和方向指引，</p>
+<ul>
+<li>IaaS：这是为了想要建立自己的商业模式并进行自定义的客户，例如亚马逊的 EC2、S3 存储、Rackspace 虚拟机等都是 IaaS。</li>
+<li>PaaS：工具和服务的集合，对于想用它来构建自己的应用程序或者想快速得将应用程序部署到生产环境而不必关心底层硬件的用户和开发者来说是特别有用的，
+比如 Cloud Foundry、Google App Engine、Heroku 等。</li>
+<li>SaaS：终端用户可以直接使用的应用程序。这个就太多，我们生活中用到的很多软件都是 SaaS 服务，只要基于互联网来提供的服务基本都是
+SaaS 服务，有的服务是免费的，比如 Google Docs，还有更多的是根据我们购买的 Plan 和使用量付费，比如 GitHub、各种云存储。</li>
+</ul>
+<p>真正的云化不仅仅是基础设施和平台的变化，应用也需要做出改变，摈弃传统的土方法，在架构设计、开发方式、部署维护等各个阶段和方面都基于云的特点，重新设计，从而建设全新的云化的应用，即云原生应用。</p>
+<hr>
+<p>Kubernetes作为一个分布式集群管理系统，它的一个重要目标是：将适合的资源分配给适合的应用，满足对应用的QoS要求和获得最优的资源使用效率。</p>
+
+
+    </div>
+
+    <footer class="post-footer">
+        <ul class="post-tags">
+        </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/posts/tech/k8s/architecture/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Kubernetes架构</span>
+  </a>
+  <a class="next" href="http://localhost:1313/posts/tech/cloud_native/definition/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>云原生的定义</span>
+  </a>
+</nav>
+
+    </footer>
+</article>
+    </main>
+    
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '复制';
+
+        function copyingDone() {
+            copybutton.innerHTML = '已复制！';
+            setTimeout(() => {
+                copybutton.innerHTML = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
