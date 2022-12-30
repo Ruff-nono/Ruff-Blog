@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>👨🏻‍💻 技术 on Ruff&#39;s Blog</title>
+    <link>http://localhost:1313/posts/tech/</link>
+    <description>Recent content in 👨🏻‍💻 技术 on Ruff&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 03 Nov 2022 15:50:33 +0800</lastBuildDate><atom:link href="http://localhost:1313/posts/tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kubernetes架构</title>
+      <link>http://localhost:1313/posts/tech/k8s/architecture/</link>
+      <pubDate>Thu, 20 Oct 2022 14:23:05 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/tech/k8s/architecture/</guid>
+      <description>分层架构 Kubernetes 设计理念和功能其实就是一个类似 Linux 的分层架构 核心层：Kubernetes 最核心的功能，对外提供 API 构建高层的应用，对内提供插件式应用执</description>
+    </item>
+    
+    <item>
+      <title>如何云原生</title>
+      <link>http://localhost:1313/posts/tech/cloud_native/design/</link>
+      <pubDate>Wed, 19 Oct 2022 15:40:40 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/tech/cloud_native/design/</guid>
+      <description>云原生技术有利于各组织在公有云、私有云和混合云等新型动态环境中，构建和运行可弹性扩展的应用。 云原生的代表技术包括 容器、服务网格、微服务、不可</description>
+    </item>
+    
+    <item>
+      <title>云原生的定义</title>
+      <link>http://localhost:1313/posts/tech/cloud_native/definition/</link>
+      <pubDate>Wed, 19 Oct 2022 11:58:34 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/tech/cloud_native/definition/</guid>
+      <description>云原生概念 什么是云原生（Cloud Native）？伴随着云计算的高速发展，云原生的概念也是一直处于发展变化之中，到目前为止，并没有一个确切的</description>
+    </item>
+    
+    <item>
+      <title>Go_gin</title>
+      <link>http://localhost:1313/posts/tech/go_gin/</link>
+      <pubDate>Wed, 12 Oct 2022 15:51:31 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/tech/go_gin/</guid>
+      <description>---</description>
+    </item>
+    
+  </channel>
+</rss>

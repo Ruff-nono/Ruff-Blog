@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>go on Ruff&#39;s Blog</title>
+    <link>http://localhost:1313/tags/go/</link>
+    <description>Recent content in go on Ruff&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 03 Nov 2022 15:50:33 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>gin框架(一)、快速入门</title>
+      <link>http://localhost:1313/posts/tech/gin/1-start/</link>
+      <pubDate>Thu, 03 Nov 2022 15:01:12 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/tech/gin/1-start/</guid>
+      <description>1、什么是gin Gin 是一个用Go (Golang)编写的 开源web 框架。 目前在GitHub Start 47.4K, 它是一个类似于 martini 但拥有更好性能的 API 框架， 路由解析由</description>
+    </item>
+    
+    <item>
+      <title>gin框架(二)、服务启动源码解析</title>
+      <link>http://localhost:1313/posts/tech/gin/2-start-analyze/</link>
+      <pubDate>Thu, 03 Nov 2022 15:50:33 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/tech/gin/2-start-analyze/</guid>
+      <description>1、服务启动过程 func main() { r := gin.Default() r.GET(&amp;#34;/ping&amp;#34;, func(c *gin.Context) { c.JSON(http.StatusOK, gin.H{ &amp;#34;message&amp;#34;: &amp;#34;pong&amp;#34;, }) }) r.Run() } 1. gin.Default() gin.Default() 函数会生成一个默认的 Engine 对象，里面包含了 2 个默认的常用插件，分别是 Logger 和 Recover</description>
+    </item>
+    
+  </channel>
+</rss>
