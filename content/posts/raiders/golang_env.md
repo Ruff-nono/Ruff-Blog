@@ -48,10 +48,6 @@ source /etc/profile
 
 官网下载最新版本[https://www.jetbrains.com/go/download/](https://www.jetbrains.com/go/download/)
 
-`有条件的可以支持正版`
-
-无条件的参考破解攻略
-
 ## Go 私有仓库配置
 
 go env设置
