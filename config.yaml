@@ -1,4 +1,5 @@
-baseURL: "http://localhost:1313" # if your site is in 'https', then make sure your base url isn't written using 'http' otherwise your sitemap would contain http (as opposeed to https) URLs. This would affect Google indexing of your URLs.
+#baseURL: "http://localhost:1313" # if your site is in 'https', then make sure your base url isn't written using 'http' otherwise your sitemap would contain http (as opposeed to https) URLs. This would affect Google indexing of your URLs.
+baseURL: "http://123.56.11.123:1313" # if your site is in 'https', then make sure your base url isn't written using 'http' otherwise your sitemap would contain http (as opposeed to https) URLs. This would affect Google indexing of your URLs.
 title: "Ruff's Blog"
 languageCode: zh-cn
 paginate: 5
@@ -32,16 +33,16 @@ languages:
     profileMode:
       enabled: true
       title: φ(゜▽゜*)♪
-      imageUrl: "https://raw.githubusercontent.com/twitter/twemoji/master/assets/svg/1f317.svg"
-      imageTitle:
-      # imageWidth: 120
-      # imageHeight: 120
+      imageUrl: "images/avatar.png"
+      imageTitle: Ruff
+      imageWidth: 120
+      imageHeight: 120
       # subtitle: "☄️ Fast | ☁️ Fluent | 🌙 Smooth | 📱 Responsive"
       buttons:
-        - name: 💻 技术
-          url: posts
+        - name: 👨‍💻 学习
+          url: tech
         - name: 📕 阅读
-          url: notes
+          url: read
         - name: 🏖 生活
           url: life
     menu:
@@ -54,10 +55,14 @@ languages:
           name: 🏠 主页
           url: /
           weight: 2
-        - identifier: posts
+        - identifier: notes
           name: 📜 笔记
-          url: posts
+          url: tech/notes
           weight: 3
+        - identifier: raiders
+          name: 🗡 攻略
+          url: tech/raiders
+          weight: 4
         - identifier: tags
           name: 🧩 标签
           url: tags
@@ -153,7 +158,7 @@ params:
 
   label:
     text: "Ruff's Blog"
-    icon: icon.png
+    icon: images/avatar.png
     iconHeight: 35
 
   analytics:
@@ -172,7 +177,7 @@ params:
     hidden: false # hide everywhere but not in structured data
     hiddenInList: false # hide on list pages and home
     hiddenInSingle: false # hide on single page
-    #    image: "images/img.png"
+    # image: "images/img.png"
     # can also paste direct link from external site
     # ex. https://i.ibb.co/K0HVPBd/paper-mod-profilemode.png
   #    alt: "<alt text>"
