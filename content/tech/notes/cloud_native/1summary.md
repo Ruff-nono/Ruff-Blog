@@ -1,5 +1,5 @@
 ---
-title: "云原生的定义"
+title: "【一】云原生的定义"
 slug: "definition"
 date: 2022-10-19T11:58:34+08:00
 lastmod: 2022-10-19T11:58:34+08:00
@@ -10,7 +10,7 @@ series:
 - "云原生"
 
 description: ""
-weight:
+weight: 1
 draft: false # 是否为草稿
 comments: true # 本页面是否显示评论
 showToc: true # 显示目录

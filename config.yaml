@@ -1,5 +1,5 @@
-#baseURL: "http://localhost:1313" # if your site is in 'https', then make sure your base url isn't written using 'http' otherwise your sitemap would contain http (as opposeed to https) URLs. This would affect Google indexing of your URLs.
-baseURL: "http://123.56.11.123:1313" # if your site is in 'https', then make sure your base url isn't written using 'http' otherwise your sitemap would contain http (as opposeed to https) URLs. This would affect Google indexing of your URLs.
+baseURL: "http://localhost:1313" # if your site is in 'https', then make sure your base url isn't written using 'http' otherwise your sitemap would contain http (as opposeed to https) URLs. This would affect Google indexing of your URLs.
+#baseURL: "http://123.56.11.123:1313" # if your site is in 'https', then make sure your base url isn't written using 'http' otherwise your sitemap would contain http (as opposeed to https) URLs. This would affect Google indexing of your URLs.
 title: "Ruff's Blog"
 languageCode: zh-cn
 paginate: 5
@@ -136,12 +136,12 @@ params:
       - Do give a 🌟 on Github !
 
   socialIcons:
-    - name: QQ
+    - name: weibo
       url: "link"
     - name: WeChat
       url: "link"
-    - name: phone
-      url: "index.xml"
+#    - name: phone
+#      url: "index.xml"
     - name: email
       url: "index.xml"
     - name: bilibili

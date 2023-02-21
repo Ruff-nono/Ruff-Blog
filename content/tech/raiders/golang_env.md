@@ -1,6 +1,5 @@
 ---
 title: "Golang 环境安装"
-slug: "中文路径"
 author: "Ruff"
 date: 2022-9-12T10:52:44+08:00
 lastmod: 2022-10-17T15:57:04+08:00
