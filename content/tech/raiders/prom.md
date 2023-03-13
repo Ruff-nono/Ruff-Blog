@@ -1,8 +1,8 @@
 ---
-title: "Python_env"
+title: "Prom"
 slug: ""
-date: 2023-03-13T14:57:50+08:00
-lastmod: 2023-03-13T14:57:50+08:00
+date: 2023-02-24T10:57:49+08:00
+lastmod: 2023-02-24T10:57:49+08:00
 author: ["路非非"]
 tags: # 标签
 -
@@ -23,3 +23,4 @@ cover:
   alt: ""
   relative: false
 ---
+

@@ -5,8 +5,7 @@ date: 2022-11-03T15:01:12+08:00
 lastmod: 2022-11-03T15:01:12+08:00
 author: ["路非非"]
 tags: # 标签
-- "go"
-- "gin"
+- "golang"
 series:
 - gin框架
 description: ""
