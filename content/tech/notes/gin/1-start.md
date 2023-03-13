@@ -8,7 +8,7 @@ tags: # 标签
 - "go"
 - "gin"
 series:
-- "go-gin"
+- gin框架
 description: ""
 weight: 1
 draft: false # 是否为草稿
