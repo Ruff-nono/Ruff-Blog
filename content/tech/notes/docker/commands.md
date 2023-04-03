@@ -38,3 +38,11 @@ docker run -dit -v /etc/consul.d:/etc/consul.d docker-registry.qiyi.virtual/tv/c
 在使用 -d 参数时，容器启动后会进入后台
 
 docker exec -i bc1f0e102783 sh | bash
+
+使用docker run --env VARIABLE=VALUE image:tag直接添加变量，适用于直接用docker启动的项目
+```shell
+root@ubuntu:/home/vickey/test_build# docker run --rm -it --env TEST=2 ubuntu:latest
+root@2bbe75e5d8c7:/# env |grep "TEST"
+TEST=2
+```
+
