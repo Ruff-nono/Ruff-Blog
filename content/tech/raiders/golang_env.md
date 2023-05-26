@@ -76,7 +76,7 @@ go env -w GOPRIVATE=gitlab.xxx.xxx
 ```  
 若私仓为http则设置，否则CA证书验证不通过报错
 ```
-go env -w GOINSECURE gitlab.xxx.xxx
+go env -w GOINSECURE=gitlab.xxx.xxx
 ```
 
 git配置 使用ssh
