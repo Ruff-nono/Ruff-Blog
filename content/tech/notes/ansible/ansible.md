@@ -5,7 +5,7 @@ date: 2023-02-02T15:46:45+08:00
 lastmod: 2023-02-02T15:46:45+08:00
 author: ["路非非"]
 tags: # 标签
--
+- ansible
 series:
 -
 description: ""
@@ -41,7 +41,14 @@ Red Hat Enterprise Linux, CentOS, Fedora, and Ubuntu 等发行版都默认安装
 
 # 安装管理主机
 
-...
+{{< innerlink src="tech/raiders/ansible.md" >}}
 
-# 
+# 第一条命令
+编辑/etc/ansible/hosts 并在其中加入一个或多个远程系统.你的public SSH key必须在这些系统的``authorized_keys``中:
+```
+192.168.1.50
+aserver.example.org
+bserver.example.org
+```
+
 

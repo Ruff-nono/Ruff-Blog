@@ -91,7 +91,7 @@ params:
   description: "Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod"
   author: "路非非"
   # author: ["Me", "You"] # multiple authors
-
+  math: true
   # 请写到params这个参数下面
   defaultTheme: dark  #light dark auto
   disableThemeToggle: false

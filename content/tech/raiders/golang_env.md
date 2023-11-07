@@ -1,12 +1,27 @@
 ---
 title: "Golang 环境安装"
-author: "Ruff"
+slug: ""
 date: 2022-9-12T10:52:44+08:00
-lastmod: 2022-10-17T15:57:04+08:00
-description: "window环境"
-tags:
-- "Golang"
-showToc: true
+lastmod: 2022-9-12T10:52:44+08:00
+author: ["路非非"]
+tags: # 标签
+- golang
+series:
+- 
+description: ""
+weight:
+draft: false # 是否为草稿
+comments: true # 本页面是否显示评论
+showToc: true # 显示目录
+TocOpen: true # 自动展开目录
+hidemeta: false # 是否隐藏文章的元信息，如发布日期、作者等
+disableShare: true # 底部不显示分享栏
+showbreadcrumbs: true #顶部显示路径
+cover:
+image: "" #图片路径例如：posts/tech/123/123.png
+caption: "" #图片底部描述
+alt: ""
+relative: false
 ---
 
 ## 安装Golang
@@ -61,7 +76,7 @@ go env -w GOPRIVATE=gitlab.xxx.xxx
 ```  
 若私仓为http则设置，否则CA证书验证不通过报错
 ```
-go env -w GOINSECURE gitlab.xxx.xxx
+go env -w GOINSECURE=gitlab.xxx.xxx
 ```
 
 git配置 使用ssh

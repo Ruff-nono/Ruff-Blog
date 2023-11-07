@@ -150,3 +150,9 @@ Read https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#bundling-custom-cs
     overflow: hidden;
     width: 90%;
 }
+
+code.has-jax {font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;}
