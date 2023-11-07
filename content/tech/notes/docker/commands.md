@@ -46,3 +46,25 @@ root@2bbe75e5d8c7:/# env |grep "TEST"
 TEST=2
 ```
 
+
+----
+docker 登录私有仓库报错
+```shell
+vi /etc/docker/daemon.json
+```
+
+```
+{
+"insecure-registries": ["docker-registry.qiyi.virtual"]
+}
+```
+
+重启docker
+```shell
+sudo service docker restart
+```
+
+再次登录
+```shell
+docker login {xxx}
+```

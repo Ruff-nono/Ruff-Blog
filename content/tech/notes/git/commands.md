@@ -46,3 +46,14 @@ git reset --hard [commit -hashcode]
 #[commit -hashcode]是某个 commit 的哈希值，可以用 git log 查看
 ```
 因此一般用 `git log` 查看历史版本的 `commit` 哈希值，然后 `reset` 到对应版本。
+
+## 查看文件及文件数量
+```shell
+git ls-files
+git ls-files | wc -l
+```
+
+```cue
+```
+
+
