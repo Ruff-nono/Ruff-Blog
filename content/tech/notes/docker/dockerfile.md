@@ -51,3 +51,5 @@ ARG: 用于定义构建时参数，这些参数可以在构建过程中传递给
 
 docker run -it -v $(pwd):/workspace -w /workspace docker-registry.qiyi.virtual/tv/golangci-lint:v1.52-iqiyi01 golangci-lint run --modules-download-mode=mod -v
 
+
+

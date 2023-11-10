@@ -10,7 +10,7 @@ series:
 -
 description: ""
 weight:
-draft: false # 是否为草稿
+draft: true # 是否为草稿
 comments: true # 本页面是否显示评论
 showToc: true # 显示目录
 TocOpen: true # 自动展开目录
@@ -32,6 +32,7 @@ git clone --recursive 仓库地址
 对于仓库首次拉取模块，可以使用:
 ```shell
 git submodule update --init --recursive
+git submodule update --remote themes/PaperMod
 
 ```
 更新子模块(适用于git 1.8.2及以上版本)

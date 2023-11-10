@@ -104,6 +104,7 @@ kustomizeVersion: v4.5.7
 ```
 
 ## 验证 kubectl 配置
-为了让 kubectl 能发现并访问 Kubernetes 集群，你需要一个 kubeconfig 文件， 该文件在 kube-up.sh 创建集群时，或成功部署一个 Minikube 集群时，均会自动生成。 通常，kubectl 的配置信息存放于文件 ~/.kube/config 中。
+为了让 kubectl 能发现并访问 Kubernetes 集群，你需要一个 kubeconfig 文件， 该文件在 kube-up.sh 创建集群时，或成功部署一个 Minikube 集群时，
+均会自动生成。 通常，kubectl 的配置信息存放于文件 ~/.kube/config 中。
 
 通过获取集群状态的方法，检查是否已恰当地配置了 kubectl：

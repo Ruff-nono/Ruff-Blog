@@ -32,12 +32,14 @@ Windows下可以使用 .msi 后缀(在下载列表中可以找到该文件，如
 
 linux下安装示例
 ```shell
-wget https://go.dev/dl/go1.19.4.linux-amd64.tar.gz
+wget https://go.dev/dl/go1.21.4.linux-amd64.tar.gz
 
-tar -C ~/Ruff/ -xzf go1.19.4.linux-amd64.tar.gz
+tar -xzf go1.21.4.linux-amd64.tar.gz
 ```
 
-安装完成后，在对应安装目录的 xxx\bin 目录下打开cmd, 输入`go version`命令<br/>返回go version go1.19 windows/amd64即表示安装完成。
+安装完成后，在对应安装目录的 xxx\bin 目录下打开cmd, 输入`go version`命令
+
+返回`go version go1.21.4 linux/amd64`即表示安装完成。
 
 ## 配置环境变量
 
