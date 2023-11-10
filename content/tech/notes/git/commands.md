@@ -53,7 +53,11 @@ git ls-files
 git ls-files | wc -l
 ```
 
-```cue
+```shell
+git branch -a
+git checkout -b master remotes/origin/master
 ```
+
+
 
 
