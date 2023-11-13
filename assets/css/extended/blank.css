@@ -5,132 +5,131 @@ Read https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#bundling-custom-cs
 */
 
 :root {
-    --nav-width: 1380px;
+    --footer-height: 40px;
+    /*--content-gap: 20px;*/
+    /*--content: rgb(80, 80, 80);*/
+    /*--hljs-bg: rgb(35, 35, 35);*/
+    --hljs-bg: rgb(44, 44, 44);
+    /*--code-bg: rgb(235, 235, 235);*/
+    --code-bg: rgb(240, 240, 240);
+    --code-bg-border: rgb(200, 200, 200);
+    --black: rgb(0, 0, 0);
+    --white: rgb(255, 255, 255);
+    --tag: rgb(235, 235, 235);
+
+    --nav-width: 1300px;
+    /*--nav-width: 1024px;*/
     --article-width: 650px;
     --toc-width: 300px;
 }
 
-.toc {
-    margin: 0 2px 40px 2px;
-    border: 1px solid var(--border);
-    background: var(--entry);
-    border-radius: var(--radius);
-    padding: 0.4em;
+.main {
+    max-width: calc(var(--main-width) + var(--gap) * 5);
 }
 
-.toc-container.wide {
-    position: absolute;
-    height: 100%;
-    border-right: 1px solid var(--border);
-    left: calc((var(--toc-width) + var(--gap)) * -1);
-    top: calc(var(--gap) * 2);
-    width: var(--toc-width);
+/*页面顶部栏两边宽度*/
+.nav {
+    max-width: calc(var(--nav-width) + var(--gap) * 10);
 }
 
-.wide .toc {
-    position: sticky;
-    top: var(--gap);
-    border: unset;
-    background: unset;
-    border-radius: unset;
-    width: 100%;
-    margin: 0 2px 40px 2px;
+body {
+    font-size: 18px;
+    line-height: 1.6;
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
 }
 
-.toc details summary {
-    cursor: zoom-in;
-    margin-inline-start: 20px;
-    padding: 12px 0;
+.post-content {
+    /*color: var(--secondary);*/
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
 }
 
-.toc details[open] summary {
-    font-weight: 500;
+.post-content h1 {
+    font-size: 40px;
 }
 
-.toc-container.wide .toc .inner {
-    margin: 0;
+.post-content h2 {
+    font-size: 34px;
 }
 
-.active {
-    font-size: 110%;
-    font-weight: 600;
+.post-content h3 {
+    font-size: 26px;
 }
 
-.toc ul {
-    list-style-type: circle;
+.post-content h4 {
+    font-size: 20px;
 }
 
-.toc .inner {
-    margin: 0 0 0 20px;
-    padding: 0px 15px 15px 20px;
+.post-content h5 {
     font-size: 16px;
-
-    /*目录显示高度*/
-    max-height: 83vh;
-    overflow-y: auto;
 }
 
-.toc .inner::-webkit-scrollbar-thumb {  /*滚动条*/
-    background: var(--border);
-    border: 7px solid var(--theme);
-    border-radius: var(--radius);
+.post-content h6 {
+    font-size: 14px;
 }
 
-.toc li ul {
-    margin-inline-start: calc(var(--gap) * 0.5);
-    list-style-type: none;
+.post-content p {
+    margin-top: 20px;
+    /*text-indent: 2em;*/ /*所有首行缩进*/
 }
 
-.toc li {
-    list-style: none;
-    font-size: 0.95rem;
-    padding-bottom: 5px;
+.dark .post-content h1, .dark .post-content h2, .dark .post-content h3,
+.dark .post-content h4, .dark .post-content h5, .dark .post-content h6,
+.dark .post-title {
+    color: var(--content);
 }
 
-.toc li a:hover {
+.dark h1, .dark h2,
+.dark h3, .dark h4,
+.dark h5, .dark h6,
+.dark p {
+    color: rgba(180, 181, 182, 0.8);
+}
+
+.post-description {
+    padding-bottom: 10px;
     color: var(--secondary);
 }
 
-/*标签*/
-.terms-tags {
-    text-align: center;
+.dark body, .dark a, .dark .toc .details {
+    color: rgba(180, 181, 182, 0.8);
 }
 
-.terms-tags a:hover {
-    background: none;
-
-    webkit-transform: scale(1.2);
-    -moz-transform: scale(1.2);
-    -ms-transform: scale(1.2);
-    -o-transform: scale(1.2);
-    transform: scale(1.3);
+img {
+    opacity: 1;
+    border-radius: 10px;
+    border: 1px solid var(--border);
 }
 
-.terms-tags a {
-    border-radius: 30px;
-    background: none;
-    transition: transform 0.5s;
+.dark img {
+    opacity: 0.8;
+    border: 1px solid var(--border);
 }
 
-.dark .terms-tags a {
-    background: none;
+img:active {
+    transform: scale(1.25, 1.25);
+    opacity: 1;
+    z-index: 999;
+    border: 1px solid var(--border);
 }
 
-.dark .terms-tags a:hover {
-    background: none;
-
-    webkit-transform: scale(1.2);
-    -moz-transform: scale(1.2);
-    -ms-transform: scale(1.2);
-    -o-transform: scale(1.2);
-    transform: scale(1.3);
+@media screen and (min-width: 768px) {
+    ::-webkit-scrollbar {
+        width: 13px;
+        height: 13px;
+    }
 }
 
-.terms-tags li {
-    margin: 5px;
+.footer {
+    max-width: none;
+    padding: 10px 0 5px 0;
 }
 
-/*文章封面*/
+.entry-cover1 {
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+}
+
 .post-entry {
     display: flex;
     flex-direction: row;
@@ -138,21 +137,50 @@ Read https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#bundling-custom-cs
 }
 
 .entry-cover {
+    border-radius: 10px;
     overflow: hidden;
-    padding-left: 18px;
-    height: 100%;
     width: 50%;
     margin-bottom: unset;
+
+    max-height: 150px;
+    display: grid;
+    align-content: center;
 }
 
 .post-info {
     display: inline-block;
     overflow: hidden;
-    width: 90%;
+    width: 100%;
+    padding-right: 10px;
 }
 
-code.has-jax {font: inherit;
-    font-size: 100%;
-    background: inherit;
-    border: inherit;
-    color: #515151;}
+/*top*/
+.topInner {
+    display: grid;
+    align-items: baseline;
+    justify-items: center;
+    margin: 7px;
+    font-weight: 900;
+}
+
+.topSvg {
+    width: 20px;
+}
+
+.top-link {
+    padding: unset;
+}
+
+/*表格*/
+.post-content table {
+    word-break: normal;
+}
+
+.post-content table th {
+    font-size: 18px;
+}
+
+/*首页button*/
+.buttons {
+    max-width: 100%;
+}

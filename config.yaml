@@ -1,7 +1,7 @@
 baseURL: "http://localhost:1313" # if your site is in 'https', then make sure your base url isn't written using 'http' otherwise your sitemap would contain http (as opposeed to https) URLs. This would affect Google indexing of your URLs.
 #baseURL: "http://123.56.11.123:1313" # if your site is in 'https', then make sure your base url isn't written using 'http' otherwise your sitemap would contain http (as opposeed to https) URLs. This would affect Google indexing of your URLs.
 title: "Ruff's Blog"
-languageCode: zh-cn
+languageCode: zh
 paginate: 5
 theme: PaperMod
 
@@ -25,60 +25,42 @@ permalinks: # 访问博客时网址的显示形式
   post: "/:year/:month/:day/:slug"
 
 defaultContentLanguage: zh
-languages:
-  zh:
-    languageName: "简体中文"
-    languageAltTitle: "cn"
-    weight: 1
-    profileMode:
-      enabled: true
-      title: φ(゜▽゜*)♪
-      imageUrl: "images/avatar.png"
-      imageTitle: Ruff
-      imageWidth: 120
-      imageHeight: 120
-      # subtitle: "☄️ Fast | ☁️ Fluent | 🌙 Smooth | 📱 Responsive"
-      buttons:
-        - name: 👨‍💻 学习
-          url: tech
-        - name: 📕 阅读
-          url: read
-        - name: 🏖 生活
-          url: life
-    menu:
-      main:
-        - identifier: search
-          name: 🔍 搜索
-          url: search
-          weight: 1
-        - identifier: home
-          name: 🏠 主页
-          url: /
-          weight: 2
-        - identifier: notes
-          name: 📜 笔记
-          url: tech/notes
-          weight: 3
-        - identifier: raiders
-          name: 🗡 攻略
-          url: tech/raiders
-          weight: 4
-        - identifier: tags
-          name: 🧩 标签
-          url: tags
-          weight: 15
-        - identifier: series
-          name: 🧩 系列
-          url: series
-          weight: 17
-        - identifier: archives
-          name: ⏰ 时间轴
-          url: archives/
-          weight: 20
-        - identifier: about
-          name: 🙋🏻‍♂ 关于
-          url: about
-          weight: 50
+
+menu:
+  main:
+    - identifier: search
+      name: 🔍 搜索
+      url: search
+      weight: 1
+    - identifier: home
+      name: 🏠 主页
+      url: /
+      weight: 2
+    - identifier: notes
+      name: 📜 笔记
+      url: tech/notes
+      weight: 3
+    - identifier: raiders
+      name: 🗡 攻略
+      url: tech/raiders
+      weight: 4
+    - identifier: tags
+      name: 🧩 标签
+      url: tags
+      weight: 15
+    - identifier: series
+      name: 🧩 系列
+      url: series
+      weight: 17
+    - identifier: archives
+      name: ⏰ 时间轴
+      url: archives/
+      weight: 20
+    - identifier: about
+      name: 🙋🏻‍♂ 关于
+      url: about
+      weight: 50
+
 outputs:
   home:
     - HTML
@@ -93,14 +75,15 @@ params:
   # author: ["Me", "You"] # multiple authors
   math: true
   # 请写到params这个参数下面
-  defaultTheme: dark  #light dark auto
+  defaultTheme: auto  #light dark auto
   disableThemeToggle: false
   displayFullLangName: true
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
-  hideFooter: true
+  hideFooter: false
   ShowWordCounts: true
+  VisitCount: true
   DateFormat: "2006-01-02"
   ShowLastMod: true
   ShowShareButtons: false
@@ -115,27 +98,23 @@ params:
 
   profileMode:
     enabled: true
-    title: Ruff
-    subtitle: "This is subtitle"
-    imageUrl: "https://raw.githubusercontent.com/twitter/twemoji/master/assets/svg/1f317.svg"
-    imageTitle: my image
-    # imageWidth: 120
-    # imageHeight: 120
+    title: φ(゜▽゜*)♪
+    imageUrl: "images/avatar.png"
+    imageTitle: Ruff
+    imageWidth: 120
+    imageHeight: 120
+    # subtitle: "☄️ Fast | ☁️ Fluent | 🌙 Smooth | 📱 Responsive"
     buttons:
-      - name: Archives
-        url: archives
-      - name: Github
-        url: "https://github.com/"
-  homeInfoParams:
-    Title: "Hi there wave"
-    Content: >
-      Welcome to demo of hugo's theme PaperMod.
-      
-      - **PaperMod** is a simple but fast and responsive theme with useful feature-set that enhances UX.
-      
-      - Do give a 🌟 on Github !
+      - name: 👨‍💻 学习
+        url: tech
+      - name: 📕 阅读
+        url: read
+      - name: 🏖 生活
+        url: life
 
   socialIcons:
+    - name: github
+      url: "https://github.com/Ruff-nono"
     - name: weibo
       url: "link"
     - name: WeChat
@@ -149,13 +128,6 @@ params:
     - name: steam
       url: "index.xml"
 
-  editPost:
-    #    URL: "https://github.com/adityatelange/hugo-PaperMod/tree/exampleSite/content"
-    URL: "mailto://ruff_ss@foxmail.com?subject=Suggesting changes for"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
-
-
   label:
     text: "Ruff's Blog"
     icon: images/avatar.png
@@ -166,12 +138,12 @@ params:
       SiteVerificationTag: ""
 
   assets:
-    disableHLJS: false
-  #     favicon: "<link / abs url>"
-  #     favicon16x16: "<link / abs url>"
-  #     favicon32x32: "<link / abs url>"
-  #     apple_touch_icon: "<link / abs url>"
-  #     safari_pinned_tab: "<link / abs url>"
+    favicon: "img/Q.gif"
+    favicon16x16: "images/avatar.png"
+    favicon32x32: "images/avatar.png"
+    apple_touch_icon: "images/avatar.png"
+    safari_pinned_tab: "images/avatar.png"
+    disableFingerprinting: true # 禁用指纹
 
   cover:
     hidden: false # hide everywhere but not in structured data
@@ -193,6 +165,11 @@ params:
     threshold: 0.4
     minMatchCharLength: 0
     keys: [ "title", "permalink", "summary", "content" ]
+
+  StartYear: 2020 # 底部开始年份
+  FilingNo: 填写自己的备案号 # 底部备案号
+  PublicSecurityIconLink: 填自己的公安图标链接 # 填自己的公安图标链接,可用绝对路径，相对路径如 img/beian.png
+  PublicNetworkSecurity: 填自己的公网安备 # 底部公网安备号
 
 taxonomies:
   category: "categories"
