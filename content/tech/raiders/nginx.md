@@ -106,3 +106,38 @@ ln -s /etc/nginx/sites-available/your-config-file /etc/nginx/sites-enabled/
 sudo nginx -t
 sudo systemctl reload nginx
 ```
+
+# 坑
+首次`ssh`到服务器时，直接将代码`pull`到了当前用户目录，在`nginx`中配置路由到用户目录下的代码静态资源后，发现访问403。无论是怎么修改目录权限都仍是403。
+
+原因是当`ssh`到服务器时，我们一般在当前用户目录，即`/home/{user}`。 我们可以在`/home`目录下执行`ls -l` 查看权限，发现用户目录权限为
+```shell
+$ ls -l
+total 12
+drwxr-x--- 2 lighthouse lighthouse 4096 Nov 10 15:06 lighthouse
+drwxr-x--- 9 ubuntu     ubuntu     4096 Nov 13 16:25 ubuntu
+drwxr-x--- 2 usertest   test       4096 Nov 10 14:45 usertest
+```
+在`linux`文件系统中，该权限字符串解释为
+* 第一个字符 (d)： 表示文件类型。在这里，d 表示这是一个目录。如果是文件，这个位置将显示为 -。
+
+* 后面的九个字符（rwxr-x---）： 这是权限字符串，分为三组，每组三个字符。每组表示文件的所有者、文件所属组的用户、以及其他用户的权限。
+
+* 第一组 (rwx)： 表示文件所有者的权限。在这里，rwx 表示读、写、执行权限都被授予给了文件的所有者。
+
+* 第二组 (r-x)： 表示文件所属组的用户的权限。在这里，r-x 表示只有读和执行权限被授予给了文件所属组的用户。
+
+* 第三组 (---)： 表示其他用户的权限。在这里，--- 表示其他用户没有任何权限。
+
+* `usertest`   `test` 分别表示用户和用户组。
+
+在`nginx.conf`配置中一般默认用户为`uid=33(www-data) gid=33(www-data) groups=33(www-data)`。因此`nginx`无法对用户目录进行资源访问。
+
+解决方法：
+
+所以我们通常可以将网站文件放在`/var/www/`目录下。或者修改用户目录权限，允许其他组用户执行并读取目录。
+```shell
+sudo chmod 755 /home/usertest
+```
+
+

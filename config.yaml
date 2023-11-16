@@ -94,7 +94,7 @@ params:
   ShowToc: true
   tocopen: true
   hideSummary: false
-  comments: true
+  comments: false
 
   profileMode:
     enabled: true
@@ -166,10 +166,17 @@ params:
     minMatchCharLength: 0
     keys: [ "title", "permalink", "summary", "content" ]
 
-  StartYear: 2020 # 底部开始年份
-  FilingNo: 填写自己的备案号 # 底部备案号
-  PublicSecurityIconLink: 填自己的公安图标链接 # 填自己的公安图标链接,可用绝对路径，相对路径如 img/beian.png
+  StartYear: "2023" # 底部开始年份
+  FilingNo: 京ICP备2023031615号 # 底部备案号
+  PublicSecurityIconLink: images/beian.png # 填自己的公安图标链接,可用绝对路径，相对路径如 img/beian.png
   PublicNetworkSecurity: 填自己的公网安备 # 底部公网安备号
+
+  Reward: false #打赏是否开启
+  # 打赏微信图片地址，
+  # 可用绝对和相对地址，相对地址的图片需放在static/img下，
+  # 填写格式为img/wechat_pay.png
+  WechatPay: img/wechat_pay.png
+  Alipay: img/alipay.png #打赏支付宝图片地址
 
 taxonomies:
   category: "categories"

@@ -1,7 +1,7 @@
 ---
-title: "{{ replace .Name "-" " " | title }}"
-date: {{ .Date }}
-lastmod: {{ .Date }}
+title: "Pic"
+date: 2023-11-13T16:30:17+08:00
+lastmod: 2023-11-13T16:30:17+08:00
 author: ["Ruff"]
 keywords: 
 - 
@@ -28,3 +28,9 @@ cover:
     alt: ""
     relative: false
 ---
+
+{{< galleries >}}
+{{< gallery src="luffy.png" title="路飞">}}
+{{< gallery src="luffy.png" title="路飞">}}
+{{< gallery src="luffy.png" title="路飞">}}
+{{< /galleries >}}
