@@ -1,5 +1,4 @@
-baseURL: "http://43.138.45.249" # if your site is in 'https', then make sure your base url isn't written using 'http' otherwise your sitemap would contain http (as opposeed to https) URLs. This would affect Google indexing of your URLs.
-#baseURL: "http://123.56.11.123:1313" # if your site is in 'https', then make sure your base url isn't written using 'http' otherwise your sitemap would contain http (as opposeed to https) URLs. This would affect Google indexing of your URLs.
+baseURL: "http://blog.rufff.cn" # if your site is in 'https', then make sure your base url isn't written using 'http' otherwise your sitemap would contain http (as opposeed to https) URLs. This would affect Google indexing of your URLs.
 title: "Ruff's Blog"
 languageCode: zh
 paginate: 5
@@ -75,7 +74,7 @@ params:
   # author: ["Me", "You"] # multiple authors
   math: true
   # 请写到params这个参数下面
-  defaultTheme: auto  #light dark auto
+  defaultTheme: dark  #light dark auto
   disableThemeToggle: false
   displayFullLangName: true
   ShowPostNavLinks: true
@@ -169,7 +168,7 @@ params:
   StartYear: "2023" # 底部开始年份
   FilingNo: 京ICP备2023031615号 # 底部备案号
   PublicSecurityIconLink: images/beian.png # 填自己的公安图标链接,可用绝对路径，相对路径如 img/beian.png
-  PublicNetworkSecurity: 填自己的公网安备 # 底部公网安备号
+  PublicNetworkSecurity: 公网安备 # 底部公网安备号
 
   Reward: false #打赏是否开启
   # 打赏微信图片地址，
