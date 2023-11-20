@@ -29,7 +29,7 @@ cover:
     relative: false
 ---
 
-# 问题
+## 问题
 
 运行 `wsl` 时无响应，无奈只能 `CTRL+C`
 ![11](wsl.png)
@@ -46,7 +46,7 @@ cover:
 
 此时可以正常执行 `wsl -l -v` 等相关命令。
 
-# LxssManager 简介
+## LxssManager 简介
 
 服务管理器中对 `LxssManager` 的描述
 > LXSS Manager 服务支持运行本机 ELF 二进制文件。该服务提供在 Windows 上运行 ELF 二进制文件所需的基础结构。如果停止或禁用该服务，这些二进制文件将不再运行。
