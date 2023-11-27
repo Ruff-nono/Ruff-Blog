@@ -1,16 +1,16 @@
 ---
-title: "Kubectl"
+title: "在linux中安裝Kubectl"
 slug: ""
 date: 2023-02-08T11:18:27+08:00
 lastmod: 2023-02-08T11:18:27+08:00
 author: ["路非非"]
 tags: # 标签
--
-series:
--
+- k8s
+series: # 没有分类界面可以不填写
+- k8s 学习
 description: ""
 weight:
-draft: true # 是否为草稿
+draft: false # 是否为草稿
 comments: true # 本页面是否显示评论
 showToc: true # 显示目录
 TocOpen: true # 自动展开目录
@@ -33,7 +33,8 @@ kubectl 版本和集群版本之间的差异必须在一个小版本号内。 �
 
 1. 用以下命令下载最新发行版：
 
-```shell
+```shell 
+# X86
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 ```
 
@@ -105,6 +106,34 @@ kustomizeVersion: v4.5.7
 
 ## 验证 kubectl 配置
 为了让 kubectl 能发现并访问 Kubernetes 集群，你需要一个 kubeconfig 文件， 该文件在 kube-up.sh 创建集群时，或成功部署一个 Minikube 集群时，
-均会自动生成。 通常，kubectl 的配置信息存放于文件 ~/.kube/config 中。
+均会自动生成。 通常，kubectl 的配置信息存放于文件 `~/.kube/config` 中。
 
 通过获取集群状态的方法，检查是否已恰当地配置了 kubectl：
+```shell
+kubectl cluster-info
+```
+
+如果返回一个 URL，则意味着 kubectl 成功地访问到了你的集群。
+
+如果你看到如下所示的消息，则代表 kubectl 配置出了问题，或无法连接到 Kubernetes 集群。
+```
+E1120 16:37:42.197736   19860 memcache.go:265] couldn't get current server API group list: Get "http://localhost:8080/api?timeout=32s": dial tcp 127.0.0.1:8080: connect: connection refused
+E1120 16:37:42.198002   19860 memcache.go:265] couldn't get current server API group list: Get "http://localhost:8080/api?timeout=32s": dial tcp 127.0.0.1:8080: connect: connection refused
+E1120 16:37:42.199915   19860 memcache.go:265] couldn't get current server API group list: Get "http://localhost:8080/api?timeout=32s": dial tcp 127.0.0.1:8080: connect: connection refused
+E1120 16:37:42.200338   19860 memcache.go:265] couldn't get current server API group list: Get "http://localhost:8080/api?timeout=32s": dial tcp 127.0.0.1:8080: connect: connection refused
+E1120 16:37:42.202606   19860 memcache.go:265] couldn't get current server API group list: Get "http://localhost:8080/api?timeout=32s": dial tcp 127.0.0.1:8080: connect: connection refused
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+The connection to the server localhost:8080 was refused - did you specify the right host or port?
+```
+
+可以先安装一个 Minikube 工具，然后再重新运行上面的命令。
+
+可以看到
+```
+Kubernetes control plane is running at https://127.0.0.1:32774
+CoreDNS is running at https://127.0.0.1:32774/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+```
+
+## 参考
+[在 Linux 系统中安装并设置 kubectl](https://kubernetes.io/zh-cn/docs/tasks/tools/install-kubectl-linux/)

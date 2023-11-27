@@ -1,11 +1,11 @@
 ---
-title: "{{ replace .Name "-" " " | title }}"
-date: {{ .Date }}
-lastmod: {{ .Date }}
+title: "Raft"
+date: 2023-11-24T10:04:52+08:00
+lastmod: 2023-11-24T10:04:52+08:00
 author: ["Ruff"]
 keywords: 
 - 
-series: # 系列
+categories: # 没有分类界面可以不填写
 - 
 tags: # 标签
 - 
@@ -28,3 +28,5 @@ cover:
     alt: ""
     relative: false
 ---
+
+http://thesecretlivesofdata.com/raft/

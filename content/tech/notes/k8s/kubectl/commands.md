@@ -1,15 +1,15 @@
 ---
-title: "{{ replace .Name "-" " " | title }}"
-date: {{ .Date }}
-lastmod: {{ .Date }}
+title: "kubectl 命令学习"
+date: 2023-11-23T17:27:34+08:00
+lastmod: 2023-11-23T17:27:34+08:00
 author: ["Ruff"]
 keywords: 
 - 
-series: # 系列
+categories: # 没有分类界面可以不填写
 - 
 tags: # 标签
 - 
-description: ""
+description: "kubectl 是 Kubernetes 的命令行工具，用于与 Kubernetes 集群进行交互。它是一个强大的工具，提供了许多命令来管理集群、部署应用程序、检查资源状态等。"
 weight:
 slug: ""
 draft: true # 是否为草稿
@@ -28,3 +28,5 @@ cover:
     alt: ""
     relative: false
 ---
+
+## 
