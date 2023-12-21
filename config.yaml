@@ -168,7 +168,7 @@ params:
   StartYear: "2023" # 底部开始年份
   FilingNo: 京ICP备2023031615号 # 底部备案号
   PublicSecurityIconLink: images/beian.png # 填自己的公安图标链接,可用绝对路径，相对路径如 img/beian.png
-  PublicNetworkSecurity: 公网安备 # 底部公网安备号
+  PublicNetworkSecurity: 11011202100380 # 底部公网安备号
 
   Reward: false #打赏是否开启
   # 打赏微信图片地址，
@@ -176,6 +176,12 @@ params:
   # 填写格式为img/wechat_pay.png
   WechatPay: img/wechat_pay.png
   Alipay: img/alipay.png #打赏支付宝图片地址
+
+  # twikoo评论
+  twikoo:
+    version: 1.6.27 # 填写twikoo版本号
+    id: https://q785287123-twikoo.hf.space  # 填写自己的twikoo id
+    region:  # 环境地域，默认为 ap-shanghai，如果您的环境地域不是上海，需传此参数，请看twikoo官方文档
 
 taxonomies:
   category: "categories"

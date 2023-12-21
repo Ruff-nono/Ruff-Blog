@@ -37,7 +37,7 @@ cover:
 执行 `sc query LxssManager`, 发现状态为STOP PENDING， 而正常状态应为 RUNNING
 ![22](query.png)
 
-首先通过 `/svc /fi "imagename eq svchost.exe" | findstr LxssManager` 来获取运行 `LxssManager` 的svchost.exe的PID
+首先通过 `tasklist /svc /fi "imagename eq svchost.exe" | findstr LxssManager` 来获取运行 `LxssManager` 的svchost.exe的PID
 ![33](pid.png)
 
 运行任务管理器，在详细信息选项卡中，找到对应 PID 的 svchost.exe，右键结束进程树
@@ -55,3 +55,5 @@ LxssManager的作用
 >Windows Subsystem for Linux是一个独立的环境子系统，是NT内核固有机制，之前具有OS/2子系统和POSIX子系统，后来Windows发展中删除了。每个子系统通常有一个子系统服务进程和一个内核态驱动组成，Windows子系统则是CSRSS.exe和Win32k.sys。
 >
 >WSL子系统则是服务进程LxssManager，服务管理器中可以看到这个服务。LxssManager的核心代码是一个DLL，它位于system32\lxss子目录，这个DLL运行在svchost.exe宿主进程中。内核空间运行的Linux系统驱动有lxss.sys和LxCore.sys两个。
+
+## 
