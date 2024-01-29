@@ -58,6 +58,21 @@ git branch -a
 git checkout -b master remotes/origin/master
 ```
 
+```shell
+ git remote [-v | --verbose]
+git remote add [-t <branch>] [-m <master>] [-f] [--tags | --no-tags] [--mirror=<fetch|push>] <name> <url>
+git remote rename <old> <new>
+git remote remove <name>
+git remote set-head <name> (-a | --auto | -d | --delete | <branch>)
+git remote [-v | --verbose] show [-n] <name>
+git remote prune [-n | --dry-run] <name>
+git remote [-v | --verbose] update [-p | --prune] [(<group> | <remote>)...]
+git remote set-branches [--add] <name> <branch>...
+git remote get-url [--push] [--all] <name>
+git remote set-url [--push] <name> <newurl> [<oldurl>]
+git remote set-url --add <name> <newurl>
+git remote set-url --delete <name> <url>
 
+```
 
 
