@@ -1,7 +1,7 @@
 ---
-title: "Muti_remote"
-date: 2024-01-29T15:52:05+08:00
-lastmod: 2024-01-29T15:52:05+08:00
+title: "Scenes"
+date: 2024-02-01T16:15:03+08:00
+lastmod: 2024-02-01T16:15:03+08:00
 author: ["Ruff"]
 keywords: 
 - 
@@ -28,9 +28,3 @@ cover:
     alt: ""
     relative: false
 ---
-
-```shell
-git init --bare /home/ubuntu/test.git
-git init /home/ubuntu/test.git
-```
-
