@@ -8,7 +8,7 @@ tags: # 标签
 -
 series:
 -
-description: ""
+description: "介绍以下docker compose 顺便记录一些常用的中间件镜像引用"
 weight:
 draft: true # 是否为草稿
 comments: true # 本页面是否显示评论

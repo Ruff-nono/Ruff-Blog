@@ -24,7 +24,7 @@ cover:
   relative: false
 ---
 
-## 编译
+# 编译
 一个简单的代码
 ```go
 package main
@@ -35,48 +35,48 @@ func main() {
 	print(a())
 }
 ```
-通过`go tool compile`编译go代码（flag: compile link之类后面再学）
+通过`go tool compile`编译go代码
 ```shell
-go tool compile -S main,go
+go tool compile -S main.go
 ```
 可以看到两个函数的汇编，分别表示`main.a`和`main.main`
 
 ```
 main.a STEXT nosplit size=6 args=0x0 locals=0x0 funcid=0x0 align=0x0
-	0x0000 00000 (main,go:3)	TEXT	main.a(SB), NOSPLIT|ABIInternal, $0-0
-	0x0000 00000 (main,go:3)	FUNCDATA	$0, gclocals·g2BeySu+wFnoycgXfElmcg==(SB)
-	0x0000 00000 (main,go:3)	FUNCDATA	$1, gclocals·g2BeySu+wFnoycgXfElmcg==(SB)
-	0x0000 00000 (main,go:3)	MOVL	$1, AX
-	0x0005 00005 (main,go:3)	RET
+	0x0000 00000 (main.go:3)	TEXT	main.a(SB), NOSPLIT|ABIInternal, $0-0
+	0x0000 00000 (main.go:3)	FUNCDATA	$0, gclocals·g2BeySu+wFnoycgXfElmcg==(SB)
+	0x0000 00000 (main.go:3)	FUNCDATA	$1, gclocals·g2BeySu+wFnoycgXfElmcg==(SB)
+	0x0000 00000 (main.go:3)	MOVL	$1, AX
+	0x0005 00005 (main.go:3)	RET
 	0x0000 b8 01 00 00 00 c3                                ......
 ```
 ```
 main.main STEXT size=59 args=0x0 locals=0x10 funcid=0x0 align=0x0
-	0x0000 00000 (main,go:5)	TEXT	main.main(SB), ABIInternal, $16-0
-	0x0000 00000 (main,go:5)	CMPQ	SP, 16(R14)
-	0x0004 00004 (main,go:5)	PCDATA	$0, $-2
-	0x0004 00004 (main,go:5)	JLS	52
-	0x0006 00006 (main,go:5)	PCDATA	$0, $-1
-	0x0006 00006 (main,go:5)	SUBQ	$16, SP
-	0x000a 00010 (main,go:5)	MOVQ	BP, 8(SP)
-	0x000f 00015 (main,go:5)	LEAQ	8(SP), BP
-	0x0014 00020 (main,go:5)	FUNCDATA	$0, gclocals·g2BeySu+wFnoycgXfElmcg==(SB)
-	0x0014 00020 (main,go:5)	FUNCDATA	$1, gclocals·g2BeySu+wFnoycgXfElmcg==(SB)
-	0x0014 00020 (main,go:6)	PCDATA	$1, $0
-	0x0014 00020 (main,go:6)	CALL	runtime.printlock(SB)
-	0x0019 00025 (main,go:6)	MOVL	$1, AX
-	0x001e 00030 (main,go:6)	NOP
-	0x0020 00032 (main,go:6)	CALL	runtime.printint(SB)
-	0x0025 00037 (main,go:6)	CALL	runtime.printunlock(SB)
-	0x002a 00042 (main,go:7)	MOVQ	8(SP), BP
-	0x002f 00047 (main,go:7)	ADDQ	$16, SP
-	0x0033 00051 (main,go:7)	RET
-	0x0034 00052 (main,go:7)	NOP
-	0x0034 00052 (main,go:5)	PCDATA	$1, $-1
-	0x0034 00052 (main,go:5)	PCDATA	$0, $-2
-	0x0034 00052 (main,go:5)	CALL	runtime.morestack_noctxt(SB)
-	0x0039 00057 (main,go:5)	PCDATA	$0, $-1
-	0x0039 00057 (main,go:5)	JMP	0
+	0x0000 00000 (main.go:5)	TEXT	main.main(SB), ABIInternal, $16-0
+	0x0000 00000 (main.go:5)	CMPQ	SP, 16(R14)
+	0x0004 00004 (main.go:5)	PCDATA	$0, $-2
+	0x0004 00004 (main.go:5)	JLS	52
+	0x0006 00006 (main.go:5)	PCDATA	$0, $-1
+	0x0006 00006 (main.go:5)	SUBQ	$16, SP
+	0x000a 00010 (main.go:5)	MOVQ	BP, 8(SP)
+	0x000f 00015 (main.go:5)	LEAQ	8(SP), BP
+	0x0014 00020 (main.go:5)	FUNCDATA	$0, gclocals·g2BeySu+wFnoycgXfElmcg==(SB)
+	0x0014 00020 (main.go:5)	FUNCDATA	$1, gclocals·g2BeySu+wFnoycgXfElmcg==(SB)
+	0x0014 00020 (main.go:6)	PCDATA	$1, $0
+	0x0014 00020 (main.go:6)	CALL	runtime.printlock(SB)
+	0x0019 00025 (main.go:6)	MOVL	$1, AX
+	0x001e 00030 (main.go:6)	NOP
+	0x0020 00032 (main.go:6)	CALL	runtime.printint(SB)
+	0x0025 00037 (main.go:6)	CALL	runtime.printunlock(SB)
+	0x002a 00042 (main.go:7)	MOVQ	8(SP), BP
+	0x002f 00047 (main.go:7)	ADDQ	$16, SP
+	0x0033 00051 (main.go:7)	RET
+	0x0034 00052 (main.go:7)	NOP
+	0x0034 00052 (main.go:5)	PCDATA	$1, $-1
+	0x0034 00052 (main.go:5)	PCDATA	$0, $-2
+	0x0034 00052 (main.go:5)	CALL	runtime.morestack_noctxt(SB)
+	0x0039 00057 (main.go:5)	PCDATA	$0, $-1
+	0x0039 00057 (main.go:5)	JMP	0
 	0x0000 49 3b 66 10 76 2e 48 83 ec 10 48 89 6c 24 08 48  I;f.v.H...H.l$.H
 	0x0010 8d 6c 24 08 e8 00 00 00 00 b8 01 00 00 00 66 90  .l$...........f.
 	0x0020 e8 00 00 00 00 e8 00 00 00 00 48 8b 6c 24 08 48  ..........H.l$.H
@@ -99,7 +99,7 @@ gclocals·g2BeySu+wFnoycgXfElmcg== SRODATA dupok size=8
 ```
 
 
-## main.a
+# main.a
 这是一个非常简单的函数，将常数1加载到寄存器AX中，然后返回。
 
 ```
@@ -141,7 +141,7 @@ RET
 b8 是MOVL的操作码，01 00 00 00表示值1的字节表示。c3 是一条RET指令，表示函数的返回。  
 将常数值1加载到寄存器中，然后返回。
 
-## main.main
+# main.main
 ```
   TEXT	main.main(SB), ABIInternal, $16-0
 ```
@@ -161,3 +161,82 @@ b8 是MOVL的操作码，01 00 00 00表示值1的字节表示。c3 是一条RET�
 	MOVQ BP, 8(SP)
 	LEAQ 8(SP), BP
 ```
+SUBQ $16, SP：   
+SUBQ 是减法指令，用于减去一个操作数的值。
+$16 表示要减去的值，这里是16字节。
+SP 是栈指针寄存器，通过减去16，将栈指针向下移动，为局部变量和其他数据分配空间。
+
+MOVQ BP, 8(SP)：   
+MOVQ 是移动指令，用于将一个操作数的值从一个位置复制到另一个位置。
+BP 是基址寄存器，它通常在函数 prologue 中被设置为上一个栈帧的基址。
+8(SP) 表示目标位置，即栈上位置8个字节的偏移，用于存储上一个栈帧的基址。
+
+LEAQ 8(SP), BP：   
+LEAQ 是加载有效地址指令，用于将一个地址加载到目标寄存器中。
+8(SP) 表示要加载的地址，即栈上位置8个字节的偏移。
+BP 是目标寄存器，这将使当前函数的基址寄存器设置为上一个栈帧的基址。   
+这三条指令一起完成了为当前函数设置堆栈帧，保存上一个栈帧的基址，然后将当前栈帧的基址设置为上一个栈帧的基址。这些操作是函数 prologue 的一部分，通常在函数开始时执行，以便为局部变量分配空间，并设置好函数的堆栈环境。
+
+```
+CALL	runtime.printlock(SB)
+MOVL	$1, AX
+NOP
+CALL	runtime.printint(SB)
+CALL	runtime.printunlock(SB)
+```
+CALL runtime.printlock(SB)：   
+
+CALL 是函数调用指令，用于调用其他函数。
+runtime.printlock(SB) 是一个函数符号引用，它指向运行时库中的 printlock 函数。SB 表示基址寄存器。
+这条指令调用 runtime.printlock 函数，通常是为了锁定输出，以防止多个线程/协程同时写入。
+
+MOVL $1, AX：
+
+MOVL 是将指令，用于将一个值加载到寄存器。
+$1 表示常数值1。
+AX 是目标寄存器，这条指令将1加载到寄存器 AX 中。
+NOP：
+
+NOP 是空操作指令，不做任何实际操作
+
+CALL runtime.printint(SB)：
+
+同第1步，这条指令调用 runtime.printint 函数，用于打印寄存器 AX 中的值。
+
+CALL runtime.printunlock(SB)：
+
+同第1步，这条指令调用 runtime.printunlock 函数，用于解锁输出，以允许其他线程/协程写入。
+这些指令组合在一起, 是通过运行时函数在输出之前和之后设置锁定，然后调用 printint 函数来打印寄存器中的值。
+
+```
+MOVQ	8(SP), BP
+ADDQ	$16, SP
+RET
+NOP
+```
+MOVQ 8(SP), BP：
+
+MOVQ 是移动指令，用于将一个操作数的值从一个位置复制到另一个位置。
+8(SP) 表示源位置，即栈上位置8个字节的偏移，这个位置存储了之前函数的栈帧的基址。
+BP 是目标寄存器，这条指令将上一个栈帧的基址复制到当前的基址寄存器，从而恢复上一个栈帧的基址。
+ADDQ $16, SP：
+
+ADDQ 是加法指令，用于将一个操作数的值加到另一个操作数上。
+$16 表示要添加的值，这里是16字节。
+SP 是栈指针寄存器，通过加上16，将栈指针向上移动，释放之前为局部变量分配的栈空间。
+RET：
+
+RET 是函数返回指令，用于从当前函数返回到调用者。
+NOP：
+
+NOP 是空操作指令，通常是为了占位或在调试时方便插入断点。
+这些指令一起完成了函数的 epilogue 部分，用于恢复之前的栈帧，释放局部变量的空间，然后从函数返回。这些操作和函数的 prologue（开头部分）是相对应的，用于维护正确的堆栈环境。
+
+```
+CALL	runtime.morestack_noctxt(SB)
+```
+CALL runtime.morestack_noctxt(SB)：
+CALL 是函数调用指令，用于调用其他函数。
+runtime.morestack_noctxt(SB) 是一个函数符号引用，它指向运行时库中的 morestack_noctxt 函数。SB 表示基址寄存器。
+这条指令调用 runtime.morestack_noctxt 函数，它是在发生栈溢出时负责扩展栈空间的函数。这个函数会分配额外的栈空间，以避免栈溢出并确保程序能够继续执行。
+当栈空间不足以支持函数的调用和局部变量时，会触发栈溢出。为了防止栈溢出，Go编译器会在函数 prologue 中插入类似于 CALL runtime.morestack_noctxt 这样的调用，以确保有足够的栈空间供函数执行。这个机制在Go中称为"stack growth"（栈增长）。

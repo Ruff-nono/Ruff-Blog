@@ -1,7 +1,7 @@
 ---
-title: "Muti_remote"
-date: 2024-01-29T15:52:05+08:00
-lastmod: 2024-01-29T15:52:05+08:00
+title: "高并发场景下的三大应对策略（缓存、限流、降级）"
+date: 2024-02-04T17:43:47+08:00
+lastmod: 2024-02-04T17:43:47+08:00
 author: ["Ruff"]
 keywords: 
 - 
@@ -9,7 +9,7 @@ series: # 系列
 - 
 tags: # 标签
 - 
-description: ""
+description: "软件系统有三个追求：高性能、高并发、高可用，俗称三高。本篇讨论高并发，从高并发是什么到高并发应对的策略、缓存、限流、降级等。"
 weight:
 slug: ""
 draft: true # 是否为草稿
@@ -28,9 +28,3 @@ cover:
     alt: ""
     relative: false
 ---
-
-```shell
-git init --bare /home/ubuntu/test.git
-git init /home/ubuntu/test.git
-```
-
